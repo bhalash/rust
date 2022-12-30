@@ -17,8 +17,9 @@ fn main() {
     puppies.insert(&pearl.name, &pearl);
 
     let kiki = Puppy { name: "Kiki".to_string() };
-    let kiki = puppies.entry(&kiki.name).or_insert(&kiki);
+    puppies.entry(&kiki.name).or_insert(&kiki);
 
-    println!("{:?}", jonsey);
-    println!("{:?}", kiki);
+    for (_, puppy) in puppies.into_iter() {
+        println!("{:?}", puppy);
+    }
 }
